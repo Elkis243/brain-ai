@@ -1,0 +1,238 @@
+{% extends 'main.html' %} {% load static %} {% block content %}
+<div class="container d-flex mt-4 mb-3">
+    <img src="{% static 'icon/favicon.ico' %}" height="35" width="35" />
+    <a href="{% url 'home' %}" class="text-decoration-none mt-2 mx-2 text-dark"
+        >Brain Ai</a
+    >
+</div>
+<div class="d-flex justify-content-center align-items-center content">
+    <div class="container-fluid">
+        <div class="container stepwizard">
+            <div class="stepwizard-row setup-panel">
+                <div class="stepwizard-step">
+                    <a
+                        href="#step-1"
+                        type="button"
+                        class="btn btn-primary btn-circle active"
+                    >
+                        1/4
+                    </a>
+                </div>
+                <div class="stepwizard-step">
+                    <a
+                        href="#step-2"
+                        type="button"
+                        class="btn btn-default btn-circle active"
+                        disabled="disabled"
+                    >
+                        2/4
+                    </a>
+                </div>
+                <div class="stepwizard-step">
+                    <a
+                        href="#step-3"
+                        type="button"
+                        class="btn btn-default btn-circle active"
+                        disabled="disabled"
+                    >
+                        3/4
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <form action="{% url 'predict' %}" method="post" class="mt-3">
+                {% csrf_token %}
+                <div class="container setup-content" id="step-1">
+                    <div class="row">
+                        <div class="form-group mb-2">
+                            <label for="gender" class="form-label">Genre</label>
+                            <select
+                                name="gender"
+                                id="gender"
+                                class="form-select"
+                            >
+                                <option value="0">Femme</option>
+                                <option value="1">Homme</option>
+                                <option value="2">Autre</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="age" class="form-label">Age</label>
+                            <input
+                                type="number"
+                                name="age"
+                                id="age"
+                                class="form-control"
+                                min="1"
+                                max="120"
+                                required
+                            />
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="bmi" class="form-label"
+                                >Indice de masse corporelle</label
+                            >
+                            <input
+                                type="number"
+                                name="bmi"
+                                id="bmi"
+                                class="form-control"
+                                min="5"
+                                max="80"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <button
+                                class="btn btn-primary nextBtn pull-right"
+                                type="button"
+                            >
+                                Suivant
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="container setup-content" id="step-2">
+                    <div class="row">
+                        <div class="form-group mb-2">
+                            <label for="ever_married" class="form-label"
+                                >Marié</label
+                            >
+                            <select
+                                name="ever_married"
+                                id="ever_married"
+                                class="form-select"
+                            >
+                                <option value="0">Non</option>
+                                <option value="1">Oui</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="work_type" class="form-label"
+                                >Type de travail</label
+                            >
+                            <select
+                                name="work_type"
+                                id="work_type"
+                                class="form-select"
+                            >
+                                <option value="0">Gouvernemental</option>
+                                <option value="1">Pas de travail</option>
+                                <option value="2">Privé</option>
+                                <option value="3">
+                                    Travailleur indépendant
+                                </option>
+                                <option value="4">Enfant</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="residence_type" class="form-label"
+                                >Type résidence</label
+                            >
+                            <select
+                                name="residence_type"
+                                id="residence_type"
+                                class="form-select"
+                            >
+                                <option value="0">Rural</option>
+                                <option value="1">Urbain</option>
+                            </select>
+                        </div>
+                        <div>
+                            <button
+                                class="btn btn-primary prevBtn pull-left"
+                                type="button"
+                            >
+                                Précedent
+                            </button>
+                            <button
+                                class="btn btn-primary nextBtn pull-right"
+                                type="button"
+                            >
+                                Suivant
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="container setup-content" id="step-3">
+                    <div class="row mb-2">
+                        <div class="col-md-6">
+                            <label for="hypertension" class="form-label"
+                                >Hypertension</label
+                            >
+                            <select
+                                name="hypertension"
+                                id="hypertension"
+                                class="form-select"
+                            >
+                                <option value="0">Non</option>
+                                <option value="1">Oui</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mt-2">
+                            <label for="heart_disease" class="form-label"
+                                >Cardiopathie</label
+                            >
+                            <select
+                                name="heart_disease"
+                                id="heart_disease"
+                                class="form-select"
+                            >
+                                <option value="0">Non</option>
+                                <option value="1">Oui</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group mb-2">
+                            <label for="avg_glucose_level" class="form-label"
+                                >Niveau glugoce moyen</label
+                            >
+                            <input
+                                type="number"
+                                name="avg_glucose_level"
+                                id="avg_glucose_level"
+                                class="form-control"
+                                min="50"
+                                max="300"
+                                required
+                            />
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="smoking_status" class="form-label"
+                                >Fumeur</label
+                            >
+                            <select
+                                name="smoking_status"
+                                id="smoking_status"
+                                class="form-select"
+                            >
+                                <option value="0">Non</option>
+                                <option value="1">Oui</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <button
+                            class="btn btn-primary prevBtn pull-left"
+                            type="button"
+                        >
+                            Précedent
+                        </button>
+                        <button
+                            class="btn btn-primary submit pull-right"
+                            type="submit"
+                        >
+                            Envoyer
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/app.js' %}"></script>
+{% endblock content %}

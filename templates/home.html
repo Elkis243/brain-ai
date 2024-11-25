@@ -1,0 +1,37 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<div>
+    <div class="row position-relative">
+        <div class="col-md-5 bg-primary row-images">
+            <div class="container d-flex mt-4 mb-5">
+                <img src="{% static 'icon/favicon.ico' %}" height='30' width='30'>
+                <a href="" class='text-decoration-none mt-2 mx-2 text-white'>Brain Ai</a>
+            </div>
+            <div class="container">
+                <h4 class='mb-4 text-white'>Bienvenu dans Brain Ai</h4>
+                <p class='align-text-bottom text-white text-home'>
+                    Prenez soin de votre santé avec notre application de prédiction de risque d'AVC.
+                    Notre technologie utilise l'apprentissage automatique pour évaluer votre risque personnel d'AVC en
+                    seulement quelques minutes.
+                    Répondez simplement à quelques questions et recevez une estimation précise
+                    de votre risque. Nous vous fournirons également des recommandations pour réduire votre risque.
+
+                </p>
+                <a href="{% url 'data' %}" class='btn bg-color'>Démarrer</a>
+            </div>
+
+        </div>
+        <div class="col-md-7 position-relative ">
+            <div class="container d-flex justify-content-center">
+                <img src="{% static 'icon/test.png' %}" class="img-fluid mt-5 mb-5" height="450" width="450">
+            </div>
+            <div class=''>
+                <p class='position-absolute text-bottom text-center'>
+                    Nous utilisons un système anonyme pour garantir la confidentialité de vos données personnelles.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,89 @@
+body{
+    font-family: "Varela Round", serif;
+    overflow-x: hidden;
+    letter-spacing: .3px;
+}
+.text-home{
+    font-size: 12.5px;
+}
+.row-images{
+    height: 100dvh;
+    background-color: #354b81;
+}
+.message-rigth{
+    position: relative;
+    top: 120px;
+    text-align: justify;
+}
+.text-bottom{
+    margin-left: 23%;
+    margin-right: 23%;
+    position: absolute;
+    bottom: 0px;
+    font-size: 1px;
+}
+.content{
+    height: 65vh;
+}
+.stepwizard {
+    display: table;
+    position: relative;
+    width: 90%;
+}
+.stepwizard-row {
+    display: table-row;
+}
+.stepwizard-step {
+    display: table-cell;
+    text-align: center;
+    position: relative;
+}
+.stepwizard-step p {
+    margin-top: 10px;
+    font-size: 12px;
+}
+.stepwizard-row:before {
+    top: 14px;
+    bottom: 0;
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+}
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    line-height: 1.428571429;
+    border-radius: 15px;
+    background-color: #fdfdfd;
+    font-size: 12px;
+
+}
+.btn-circle:hover{
+    color: white;
+}
+.bi-person, .bi-briefcase, .bi-bandaid{
+    font-size: 15px;
+    position: relative;
+    bottom: 3px;
+}
+.icon{
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+    line-height: 20px;
+}
+.bg-color, .bg-color:hover{
+    background-color: rgb(42, 56, 117);
+    color: white;
+}
+.text-predict{
+    font-size: 12.5px;
+}
+
+.btn{
+    font-size: 12px;
+}

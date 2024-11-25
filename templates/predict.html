@@ -1,0 +1,55 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<div class="container d-flex mt-4 mb-3">
+    <img src="{% static 'icon/favicon.ico' %}" height='30' width='30'>
+    <a href="{% url 'home' %}" class='text-decoration-none mt-2 mx-2 text-dark'>Brain Ai</a>
+</div>
+
+<div class="container d-flex justify-content-center align-items-center mt-5">
+    <div class="container">
+        <div class="container stepwizard">
+            <div class="stepwizard-row setup-panel">
+                <div class="stepwizard-step">
+                    <a href="#step-1" type="button" class="btn btn-primary btn-circle active">
+                        4/4
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-5">
+            <div class="container setup-content" id="step-1">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class='mb-3'>
+                            <div class="d-flex justify-content-between">
+                                <p class='mb-0 text-predict'>Taux de risque élevé</p>
+                                <p class='text-predict'>{{ probabilite_1|floatformat:2 }}%</p>
+                            </div>
+                            <div class="progress" style="height: 7px;">
+                                <div class="progress-bar bg-danger" role="progressbar"
+                                    style="width:{{ probabilite_1|floatformat:0 }}%;"></div>
+                            </div>
+                        </div>
+                        <div class='mb-3'>
+                            <div class="d-flex justify-content-between">
+                                <p class='mb-0 text-predict'>Taux de risque faible</p>
+                                <p class='text-predict'>{{ probabilite_0|floatformat:2 }}%</p>
+                            </div>
+                            <div class="progress" style="height: 7px;">
+                                <div class="progress-bar bg-primary" role="progressbar"
+                                    style="width:{{ probabilite_0|floatformat:0 }}%;"></div>
+                            </div>
+                        </div>
+                        <a href="{% url 'data' %}" class='btn btn-primary mb-4'>Essayer à nouveau</a>
+                    </div>
+                    <div class="col-md-6 text-predict">{{random_advice}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/app.js' %}"></script>
+{% endblock content %}

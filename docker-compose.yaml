@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  brain_ai:
+    image: elkis/brain_ai:v1
+    ports:
+      - "8001:8001"
+    volumes:
+      - brain_ai_data:/django/data
+
+volumes:
+  brain_ai_data:
